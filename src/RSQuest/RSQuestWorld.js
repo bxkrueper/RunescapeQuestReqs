@@ -5,8 +5,6 @@
 //circle around bosses
 //non-collectables:  shops
 
-//Bolly's save: 12-25
-//    212;70;57;90;87;75;76;80;80;86;90;83;71;75;75;66;66;52;86;92;75;76;61;81;90;78;57;75;70;113;2120^^12d0720623431742bec3ba4f3b5c6e691af85a34800e3b1796ccb73c6a9a309016047a4600007600001
 class RSQuestWorld extends World{
 
 	static ironman;//set by menu strip
