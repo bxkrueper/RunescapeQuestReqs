@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html>
+<head>
+<style>
+#myCanvas {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+label {
+	color: white;"
+}
+body { 
+    margin: 0;
+    width: 100%;
+    overflow:hidden;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+</head>
+
+<body onload = 'load()'>
+
+<div id="menuStrip" style="background-color:Black;">
+	<img src="../images/Skill Icons/Quest Point.png" style="width:18px;height:18px;" id="Quest Point Pic" class="tooltip" >
+	<label id="Quest Point Label" >0</label>
+	
+	<input type="checkbox" id="hideLockedCheckbox" onchange="hideLockedChanged()">
+		<label> Hide locked icons</label>
+	<input type="checkbox" id="recursiveRequirementsCheckbox" onchange="recursiveRequirementsChanged()">
+		<label class="tooltip"> Show recursive requirements<span class="tooltiptext">hold ctrl to flip</span></label>
+	<input type="checkbox" id="ironmanCheckbox" onchange="ironman()">
+		<img src="../images/Ironman Badge.png" style="width:18px;height:18px;" id="Ironman Pic" class="tooltip" >
+		<label> Ironman</label>
+	<button type="button" id="importButton" onclick="importSave()">Import</button>
+	<button type="button" id="saveButton" onclick="saveToClipboard()">Save to clipboard</button>
+	<button type="button" id="toggleStatsButton" onclick="toggleStats()">Toggle Stats</button>
+</div>
+
+<canvas id="myCanvas"></canvas>
+
+<script src="../src/MyLibraries/MyAlgs.js"></script>
+<script src="../src/MyLibraries/MyMath.js"></script>
+<script src="../src/MyLibraries/Images.js"></script>
+<script src="../src/MyLibraries/SortedLinkedList.js"></script>
+
+<script src="../src/GameEngine/DebugToggle.js"></script>
+<script src="../src/GameEngine/Timer.js"></script>
+<script src="../src/GameEngine/MoveZoomCamera.js"></script>
+<script src="../src/GameEngine/World.js"></script>
+<script src="../src/GameEngine/WorldView.js"></script>
+
+
+<script src="../src/GameEngine/DragManager.js" ></script>
+<script src="../src/GameEngine/TestWorldObjects/DisplayUpdaterObject.js" ></script>
+
+<script src="../src/RSQuest/CameraManipulatorObject.js" ></script>
+
+<script src="../src/RSQuest/ItemDatabase.js" ></script>
+<script src="../src/RSQuest/RSQuestWorld.js" ></script>
+<script src="../src/RSQuest/BackgroundMap.js" ></script>
+<script src="../src/RSQuest/Icon.js" ></script>
+<script src="../src/RSQuest/InfoBox.js" ></script>
+<script src="../src/RSQuest/CounterInventory.js" ></script>
+<script src="../src/RSQuest/StatBox.js" ></script>
+
+
+
+
+
+
+<script type="text/javascript">
+"use strict";
+//checked="checked"
+	var worldView;
+
+	function load(){
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+
+		var rect = document.getElementById("menuStrip").getBoundingClientRect();//absolute position //for if there are menus above
+		canvas.height = window.innerHeight-(rect.bottom-rect.top);//set the height to fill the rest of the screen after 
+
+		canvas.width  = window.innerWidth;//don't use css to set width and height to 100 %. this causes the width and height to be inaccuate
+		
+  		worldView = new WorldView(ctx);//negative value for y zoom to make y axis point up instead of down
+  		let world = new RSQuestWorld();
+  		worldView.world = world;
+
+  		CounterInventory.updateAllLabels();
+  		world.hideLockedCheckbox = document.getElementById("hideLockedCheckbox").checked;
+  		world.recursiveQuestRequirements = document.getElementById("recursiveRequirementsCheckbox").checked;
+  		world.recursiveSkillRequirements = document.getElementById("recursiveRequirementsCheckbox").checked;
+  		RSQuestWorld.ironman = document.getElementById("ironmanCheckbox").checked;
+	}
+
+	
+
+	function hideLockedChanged(){
+		var hideLockedCheckbox = document.getElementById("hideLockedCheckbox");
+		var value = hideLockedCheckbox.checked;
+		worldView.world.hideLockedCheckbox = value;
+
+		document.getElementById("myCanvas").focus;
+		worldView.redraw();
+	}
+	function recursiveRequirementsChanged(){
+		var checkbox = document.getElementById("recursiveRequirementsCheckbox");
+		var value = checkbox.checked;
+		worldView.world.recursiveQuestRequirements = value;
+		worldView.world.recursiveSkillRequirements = value;
+
+		document.getElementById("myCanvas").focus;
+		worldView.redraw();
+	}
+
+	function importSave(){
+		var saveText = prompt("Copy and paste your save text:", "");
+
+		if(saveText===''){
+			alert('Input string was empty. Nothing imported!');
+			return;
+		}
+		worldView.world.loadSaveString(saveText);
+	}
+
+	function saveToClipboard(){
+		MyAlgs.copyTextToClipboard(worldView.world.getSaveText());
+		alert("Save string copied to clipboard.");
+	}
+
+	function toggleStats(){
+		worldView.world.getObjectByName('StatBox').toggleVisable();
+	}
+
+	function ironman(){
+		var checkbox = document.getElementById("ironmanCheckbox");
+		var value = checkbox.checked;
+		RSQuestWorld.ironman = value;
+
+		document.getElementById("myCanvas").focus;
+		worldView.redraw();
+	}
+
+
+
+	
+</script>
+
+</body>
+
+</html>
