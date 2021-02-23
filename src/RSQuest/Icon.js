@@ -185,6 +185,9 @@ class Icon{
 	}
 
 	get status(){//locked, available, have,       availableNR  (not reccommended)
+		if(this.world.selectedObject===this){
+			console.log('here');
+		}
 		if(this.have){
 			return 'have';
 		}
@@ -193,11 +196,16 @@ class Icon{
 		for(let req of this.itemInfo.questRequirements){
 			if(Icon.meetsReq(req)){
 				continue;
-			}else{
+			}else{//doesn't meet
 				if(req.optional){
-					missingOptional = true;
+					if(this.world.enforceOptionalQuestRequirements){
+						return 'locked';//it is locked. Don't bother going on
+					}else{
+						missingOptional = true;
+					}
+					
 				}else{
-					return 'locked';
+					return 'locked';//it is locked. Don't bother going on
 				}
 			}
 		}
@@ -205,11 +213,7 @@ class Icon{
 			if(Icon.meetsReq(req)){
 				continue;
 			}else{
-				// if(req.optional){
-				// 	missingOptional = true;
-				// }else{
-					return 'locked';
-				// }
+				return 'locked';
 			}
 		}
 
@@ -280,11 +284,11 @@ class Icon{
 
 	getColor(){
 		if(this.status === 'locked'){
-			return '#FF0000';
-		}else if(this.status === 'availableNR'){
-			return '#FF8800'
+			return '#FF0000';//red
+		}else if(this.status === 'availableNR' && !this.world.enforceOptionalQuestRequirements){
+			return '#FF8800'//orange
 		}else{
-			return '#00FF00';
+			return '#00FF00';//green
 		}
 	}
 
@@ -296,7 +300,7 @@ class Icon{
 			}
 				
 
-			ctx.strokeStyle = req.optional?'#FF8800':'#FF0000';
+			ctx.strokeStyle = req.optional&&!this.world.enforceOptionalQuestRequirements?'#FF8800':'#FF0000';
 			let reqItemInfo = ItemInfoDatabase.getItemInfo(req.name);
 			// if(reqItemInfo==null){
 			// 	return;
@@ -317,7 +321,7 @@ class Icon{
 		ctx.lineWidth = Icon.outlineStrokeThickness;
 		for(let unlock of this.itemInfo.unlocks){	
 
-			ctx.strokeStyle = unlock.optional?'#444488':'#00FFFF';
+			ctx.strokeStyle = unlock.optional&&!this.world.enforceOptionalQuestRequirements?'#444488':'#00FFFF';
 			let unlockItemInfo = ItemInfoDatabase.getItemInfo(unlock.name);
 			if(unlockItemInfo==null){
 				return;

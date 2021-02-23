@@ -18,6 +18,7 @@ class RSQuestWorld extends World{
 		this.hideLockedCheckbox;//set by menu strip
 		this.recursiveQuestRequirements;//set by menu strip
 		this.recursiveSkillRequirements;//set by menu strip
+		this.enforceOptionalQuestRequirements;//set by menu strip
 
 
 		this.debugMode = false;

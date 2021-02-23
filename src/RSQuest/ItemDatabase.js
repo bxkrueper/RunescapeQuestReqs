@@ -66,7 +66,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Attack",quantity:30},{name:"Strength",quantity:30},{name:"Magic",quantity:30},{name:"Mining",quantity:30},{name:"Smithing",quantity:30},{name:"Woodcutting",quantity:30},{name:"Firemaking",quantity:30},{name:"Cooking",quantity:30},],
 			questPointReward:1, },
 
-			"Between a Rock":{ x:1740,y:1782,
+			"Between a Rock":{ x:1740,y:1752,
 			questRequirements:[{name:"Dwarf Cannon"},{name:"Fishing Contest"}],
 			skillRequirements:[{name:"Defence",quantity:30},{name:"Mining",quantity:40},{name:"Smithing",quantity:50}],
 			questPointReward:2, },
@@ -92,7 +92,7 @@ class ItemInfoDatabase{
 			questPointReward:1, },
 
 			"Blood Runs Deep":{ x:454,y:1347,
-			questRequirements:[{name:"Dream Mentor"},{name:"Glorious Memories"},{name:"Horror from the Deep"}],
+			questRequirements:[{name:"Dream Mentor"},{name:"Glorious Memories"},{name:"Horror from the Deep"},{name:"Fremennik Hard Tasks"}],
 			skillRequirements:[{name:"Attack",quantity:75},{name:"Strength",quantity:75},{name:"Slayer",quantity:65}],
 			questPointReward:2,
 			notes:"also need the hard Fremennik Tasks" },
@@ -262,7 +262,7 @@ class ItemInfoDatabase{
 			questPointReward:3, },
 
 			"Desperate Times":{ x:2060,y:2072,
-			questRequirements:[{name:"The Needle Skips"},{name:"You Are It"},{name:"Sliske's Endgame",optional:true}],
+			questRequirements:[{name:"The Needle Skips"},{name:"You Are It"},{name:"Sliske's Endgame",optional:true},{name:"Curse of the Black Stone",optional:true}],
 			skillRequirements:[{name:"Mining",quantity:50},{name:"Smithing",quantity:50},{name:"Divination",quantity:50}],
 			questPointReward:3, },
 
@@ -287,7 +287,7 @@ class ItemInfoDatabase{
 			questPointReward:10, },
 
 			"Dishonour among Thieves":{ x:3041,y:2241,
-			questRequirements:[{name:"Hazeel Cult"},{name:"Missing, Presumed Death"}],///priest in peril?
+			questRequirements:[{name:"Hazeel Cult"},{name:"Missing, Presumed Death"},{name:"Nomad's Requiem",optional:true},{name:"Nadir",optional:true}],///priest in peril?
 			skillRequirements:[{name:"Agility",quantity:30},{name:"Thieving",quantity:30}],
 			questPointReward:2, },
 
@@ -499,7 +499,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Agility",quantity:25}],
 			questPointReward:5, },
 
-			"The Great Brain Robbery":{ x:3650,y:3305,
+			"The Great Brain Robbery":{ x:3854,y:3564,
 			questRequirements:[{name:"Creature of Fenkenstrain"},{name:"Cabin Fever"},{name:"Recipe for Disaster: Freeing Pirate Pete"}],
 			skillRequirements:[{name:"Crafting",quantity:16},{name:"Construction",quantity:30},{name:"Prayer",quantity:50}],
 			questPointReward:2, },
@@ -946,7 +946,8 @@ class ItemInfoDatabase{
 			"Ritual of the Mahjarrat":{ x:2065,y:1456,
 			questRequirements:[{name:"Enakhra's Lament"},{name:"A Fairy Tale III - Battle at Ork's Rift"},{name:"Fight Arena"},
 						{name:"Hazeel Cult"},{name:"Rocking Out"},{name:"The Slug Menace"},
-						{name:"A Tail of Two Cats"},{name:"The Temple at Senntisten"},{name:"While Guthix Sleeps"}],
+						{name:"A Tail of Two Cats"},{name:"The Temple at Senntisten"},{name:"While Guthix Sleeps"},
+						{name:"The General's Shadow",optional:true}],
 			skillRequirements:[{name:"Crafting",quantity:76},{name:"Agility",quantity:77},{name:"Mining",quantity:76}],
 			questPointReward:3, },
 
@@ -1748,7 +1749,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Runecrafting",quantity:50},{name:"Agility",quantity:65},{name:"Construction",quantity:50},
 								{name:"Magic",quantity:70},{name:"Farming",quantity:63},{name:"Slayer",quantity:67},
 								{name:"Crafting",quantity:64},{name:"Defence",quantity:70},{name:"Fletching",quantity:70},
-								{name:"Woodcutting",quantity:76},{name:"Firemaking",quantity:62},{name:"__________",quantity:0},],
+								{name:"Woodcutting",quantity:76},{name:"Firemaking",quantity:62}],
 			questPointReward:0, },
 
 			"Morytania Elite Tasks":{ x:3489,y:2790,pictureName:"Task Icons/Morytania Elite.png",
@@ -1901,7 +1902,31 @@ class ItemInfoDatabase{
 			questRequirements:[{name:"Violet is Blue"}],
 			skillRequirements:[],
 			questPointReward:1, },
+
+			"Foreshadowing":{ x:2719,y:2407,
+			questRequirements:[],
+			skillRequirements:[],
+			questPointReward:0, },
+
+			"Heartstealer":{ x:0,y:0,
+			questRequirements:[],
+			skillRequirements:[],
+			questPointReward:1, },
+
+			"Tortle Combat":{ x:0,y:0,
+			questRequirements:[],
+			skillRequirements:[{name:"Construction",quantity:40},{name:"Farming",quantity:17}],
+			questPointReward:0, },
 			
+			"The Vault of Shadows":{ x:2990,y:2820,
+			questRequirements:[],
+			skillRequirements:[{name:"Archaeology",quantity:58},{name:"Divination",quantity:60}],
+			questPointReward:0, },
+
+			"Azzanadra's Quest":{ x:0,y:0,
+			questRequirements:[{name:"The Vault of Shadows"}],
+			skillRequirements:[{name:"Archaeology",quantity:58},{name:"Divination",quantity:70},{name:"Agility",quantity:58},{name:"Prayer",quantity:58}],
+			questPointReward:3, },
 
 		};
 	}

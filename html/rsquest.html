@@ -49,6 +49,8 @@ body {
 		<label> Hide locked icons</label>
 	<input type="checkbox" id="recursiveRequirementsCheckbox" onchange="recursiveRequirementsChanged()">
 		<label class="tooltip"> Show recursive requirements<span class="tooltiptext">hold ctrl to flip</span></label>
+	<input type="checkbox" id="enforceOptionalRequirementsCheckbox" checked="checked" onchange="enforceOptionalRequirementsChanged()">
+		<label> Enforce cannonical order requirements</label>
 	<input type="checkbox" id="ironmanCheckbox" onchange="ironman()">
 		<img src="../images/Ironman Badge.png" style="width:18px;height:18px;" id="Ironman Pic" class="tooltip" >
 		<label> Ironman</label>
@@ -111,6 +113,7 @@ body {
   		world.hideLockedCheckbox = document.getElementById("hideLockedCheckbox").checked;
   		world.recursiveQuestRequirements = document.getElementById("recursiveRequirementsCheckbox").checked;
   		world.recursiveSkillRequirements = document.getElementById("recursiveRequirementsCheckbox").checked;
+  		world.enforceOptionalQuestRequirements = document.getElementById("enforceOptionalRequirementsCheckbox").checked;
   		RSQuestWorld.ironman = document.getElementById("ironmanCheckbox").checked;
 	}
 
@@ -133,6 +136,15 @@ body {
 		document.getElementById("myCanvas").focus;
 		worldView.redraw();
 	}
+	function enforceOptionalRequirementsChanged(){
+		var checkbox = document.getElementById("enforceOptionalRequirementsCheckbox");
+		var value = checkbox.checked;
+		worldView.world.enforceOptionalQuestRequirements = value;
+
+		document.getElementById("myCanvas").focus;
+		worldView.redraw();
+	}
+
 
 	function importSave(){
 		var saveText = prompt("Copy and paste your save text:", "");
