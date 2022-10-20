@@ -1,10 +1,8 @@
 //ideas:
-//use something better that alert (don't need to click ok)
-//------------------------boss reqs and deeper store items still appear if locked   (add property to itemInfo) + is semiVisable method in icon
 //--remember toggle preferences
 //circle around bosses
-//non-collectables:  shops
-
+//max save: 0;99;120;99;99;99;99;99;99;99;120;120;99;99;99;120;99;120;99;99;99;99;99;120;99;99;99;99;99;138;2898^^0000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+//max save: 417;99;120;99;99;99;99;99;99;99;120;120;99;99;99;120;99;120;99;99;99;99;99;120;99;99;99;99;99;138;2898^^ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc
 class RSQuestWorld extends World{
 
 	static ironman;//set by menu strip
@@ -19,6 +17,7 @@ class RSQuestWorld extends World{
 		this.recursiveQuestRequirements;//set by menu strip
 		this.recursiveSkillRequirements;//set by menu strip
 		this.enforceOptionalQuestRequirements;//set by menu strip
+		this.coordsType = 'location';//changed by menu strip. 'location' for general quest location, 'tree' for a more requirement focus
 
 
 		this.debugMode = false;
@@ -47,8 +46,14 @@ class RSQuestWorld extends World{
 		this.redrawAfter('keyInput');
 		this.redrawAfter('scroll');
 
-		let backgroundMap = new BackgroundMap();
-		this.add(backgroundMap);
+		this.backgroundMap = new BackgroundMap();
+		this.treeBackground = new TreeBackground();
+		if(this.coordsType==='location'){
+			this.add(this.backgroundMap);
+		}else{
+			this.add(this.treeBackground);
+		}
+		
 
 		this.addIcons();
 
@@ -61,6 +66,19 @@ class RSQuestWorld extends World{
 		ItemInfoDatabase.doForAllItemInfo(function(itemInfo){
 			self.add(new Icon(itemInfo));
 		});
+	}
+
+	toggleLayout(){
+		this.coordsType=this.coordsType==='location'?'tree':'location';
+		ItemInfoDatabase.switchCoords(this.coordsType);
+		if(this.coordsType==='location'){
+			this.add(this.backgroundMap);
+			this.delete(this.treeBackground);
+		}else{//tree
+			this.add(this.treeBackground);
+			this.delete(this.backgroundMap);
+		}
+		this.worldView.redraw();
 	}
 
 

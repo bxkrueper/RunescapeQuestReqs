@@ -1,6 +1,6 @@
 class _Images{
 
-	static pathToImageFolder = "../images/";/////have main class set this?
+	static pathToImageFolder = "images/";/////have main class set this?
 	static missingImageFileName = "MissingImage.jpg";
 
 	constructor(){
@@ -20,7 +20,7 @@ class _Images{
             	return this.src = "../images/" + _Images.missingImageFileName;
             }
 
-            console.log('loaded image: ' + src);
+            // console.log('loaded image: ' + src);
             return myImage;
         }
 	}

@@ -25,9 +25,21 @@ class Icon{
 			this.containsPoint = this.containsPointRect;
 			this.drawOutline = this.drawOutlineRect;
 		}
+
+
+		
 	}
 
 	doOnAdd(){
+		if(this.world.coordsType==='location'){
+			this.currentXWorld = this.itemInfo.x;
+			this.currentYWorld = this.itemInfo.y;
+		}else{//'tree'
+			this.currentXWorld = this.itemInfo.xTree;
+			this.currentYWorld = this.itemInfo.yTree;
+		}
+		
+
 		if(this._itemInfo.priorityName==null){//default
 			this._priority=this.world.priorities['IconDefault'];//don't call setter for first initilization
 		}else{
@@ -41,6 +53,10 @@ class Icon{
 			this.world.addEventListener(this,'acceptMouseTarget',this.acceptMouseTarget,this.priority);
 		}
 		this.world.addEventListener(this,'mouseClicked',this.mouseClicked);
+
+		///////temparary for getting tree coords
+		// this._dragManager = new DragManager('left',this,'currentXWorld','currentYWorld',this.containsPoint,'world');
+		// this._dragManager.addDragLogic(this.priority);
 	}
 
 	get itemInfo(){
@@ -130,10 +146,12 @@ class Icon{
 
 	//center of pic
 	get xWorld(){
-		return this.itemInfo.x;
+		return this.currentXWorld;
+		// return this.itemInfo.x;
 	}
 	get yWorld(){
-		return this.itemInfo.y;
+		return this.currentYWorld;
+		// return this.itemInfo.y;
 	}
 	get xScreen(){
 		return this.world.camera.worldXToScreenX(this.xWorld);
@@ -185,9 +203,6 @@ class Icon{
 	}
 
 	get status(){//locked, available, have,       availableNR  (not reccommended)
-		if(this.world.selectedObject===this){
-			console.log('here');
-		}
 		if(this.have){
 			return 'have';
 		}

@@ -63,6 +63,7 @@ class CameraManipulatorObject{
         	this._originalCameraYCenter = camera.yCenter;
         	this._originalCanvasMouseX = this.world.worldView.previousXScreen;
         	this._originalCanvasMouseY = this.world.worldView.previousYScreen;
+        	if(this.world.currentTarget.isBackground)/////////////temp
         	this._shouldDrag = true;
 		}
 	}

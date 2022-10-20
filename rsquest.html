@@ -42,7 +42,7 @@ body {
 <body onload = 'load()'>
 
 <div id="menuStrip" style="background-color:Black;">
-	<img src="../images/Skill Icons/Quest Point.png" style="width:18px;height:18px;" id="Quest Point Pic" class="tooltip" >
+	<img src="images/Skill Icons/Quest Point.png" style="width:18px;height:18px;" id="Quest Point Pic" class="tooltip" >
 	<label id="Quest Point Label" >0</label>
 	
 	<input type="checkbox" id="hideLockedCheckbox" onchange="hideLockedChanged()">
@@ -52,39 +52,43 @@ body {
 	<input type="checkbox" id="enforceOptionalRequirementsCheckbox" checked="checked" onchange="enforceOptionalRequirementsChanged()">
 		<label> Enforce cannonical order requirements</label>
 	<input type="checkbox" id="ironmanCheckbox" onchange="ironman()">
-		<img src="../images/Ironman Badge.png" style="width:18px;height:18px;" id="Ironman Pic" class="tooltip" >
+		<img src="images/Ironman Badge.png" style="width:18px;height:18px;" id="Ironman Pic" class="tooltip" >
 		<label> Ironman</label>
 	<button type="button" id="importButton" onclick="importSave()">Import</button>
 	<button type="button" id="saveButton" onclick="saveToClipboard()">Save to clipboard</button>
 	<button type="button" id="toggleStatsButton" onclick="toggleStats()">Toggle Stats</button>
+	<button type="button" id="toggleLayoutButton" onclick="toggleLayout()">Toggle Layout</button>
+	<button type="button" id="printButton" onclick="printCoords()">Print Tree Coords</button>
 </div>
 
 <canvas id="myCanvas"></canvas>
 
-<script src="../src/MyLibraries/MyAlgs.js"></script>
-<script src="../src/MyLibraries/MyMath.js"></script>
-<script src="../src/MyLibraries/Images.js"></script>
-<script src="../src/MyLibraries/SortedLinkedList.js"></script>
+<script src="src/MyLibraries/MyAlgs.js"></script>
+<script src="src/MyLibraries/MyMath.js"></script>
+<script src="src/MyLibraries/Images.js"></script>
+<script src="src/MyLibraries/SortedLinkedList.js"></script>
+<script src="src/MyLibraries/MyFileReader.js"></script>
 
-<script src="../src/GameEngine/DebugToggle.js"></script>
-<script src="../src/GameEngine/Timer.js"></script>
-<script src="../src/GameEngine/MoveZoomCamera.js"></script>
-<script src="../src/GameEngine/World.js"></script>
-<script src="../src/GameEngine/WorldView.js"></script>
+<script src="src/GameEngine/DebugToggle.js"></script>
+<script src="src/GameEngine/Timer.js"></script>
+<script src="src/GameEngine/MoveZoomCamera.js"></script>
+<script src="src/GameEngine/World.js"></script>
+<script src="src/GameEngine/WorldView.js"></script>
 
 
-<script src="../src/GameEngine/DragManager.js" ></script>
-<script src="../src/GameEngine/TestWorldObjects/DisplayUpdaterObject.js" ></script>
+<script src="src/GameEngine/DragManager.js" ></script>
+<script src="src/GameEngine/TestWorldObjects/DisplayUpdaterObject.js" ></script>
 
-<script src="../src/RSQuest/CameraManipulatorObject.js" ></script>
+<script src="src/RSQuest/CameraManipulatorObject.js" ></script>
 
-<script src="../src/RSQuest/ItemDatabase.js" ></script>
-<script src="../src/RSQuest/RSQuestWorld.js" ></script>
-<script src="../src/RSQuest/BackgroundMap.js" ></script>
-<script src="../src/RSQuest/Icon.js" ></script>
-<script src="../src/RSQuest/InfoBox.js" ></script>
-<script src="../src/RSQuest/CounterInventory.js" ></script>
-<script src="../src/RSQuest/StatBox.js" ></script>
+<script src="src/RSQuest/ItemDatabase.js" ></script>
+<script src="src/RSQuest/RSQuestWorld.js" ></script>
+<script src="src/RSQuest/BackgroundMap.js" ></script>
+<script src="src/RSQuest/TreeBackground.js" ></script>
+<script src="src/RSQuest/Icon.js" ></script>
+<script src="src/RSQuest/InfoBox.js" ></script>
+<script src="src/RSQuest/CounterInventory.js" ></script>
+<script src="src/RSQuest/StatBox.js" ></script>
 
 
 
@@ -163,6 +167,15 @@ body {
 
 	function toggleStats(){
 		worldView.world.getObjectByName('StatBox').toggleVisable();
+	}
+
+	function printCoords(){///////temp
+		let fileName = worldView.world.coordsType === 'location'?'location coords.txt':'tree coords.txt';
+		ItemInfoDatabase.printCoords(fileName);
+	}
+
+	function toggleLayout(){
+		worldView.world.toggleLayout();
 	}
 
 	function ironman(){

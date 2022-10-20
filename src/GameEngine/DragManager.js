@@ -1,15 +1,14 @@
 "use strict";
-//////add option for screen coordinate based object?
-
+//example usage: put in doOnAdd
+// this._dragManager = new DragManager('left',this,'currentXWorld','currentYWorld',this.containsPoint,'world');
+// this._dragManager.addDragLogic(this.priority);
 class DragManager{
 
-	constructor(mouseButton,clientObject,getXFunction,getYFunction,setXFunction,setYFunction,containsPointFunction,type = 'world'){
+	constructor(mouseButton,clientObject,xVarName,yVarName,containsPointFunction,type = 'world'){
 		this._mouseButton = mouseButton;
 		this._clientObject = clientObject;
-		this._getXFunction = getXFunction;
-		this._getYFunction = getYFunction;
-		this._setXFunction = setXFunction;
-		this._setYFunction = setYFunction;
+		this.xVarName = xVarName;
+		this.yVarName = yVarName;
 		this._containsPointFunction = containsPointFunction;
 		this._type = type;
 
@@ -76,13 +75,13 @@ class DragManager{
 	get_mouseButtonDown(){
 		let clientObject = this._clientObject;
 		let mouseButton = this._mouseButton;
-		let getXFunction = this._getXFunction;
-		let getYFunction = this._getYFunction;
+		let xVarName = this.xVarName;
+		let yVarName = this.yVarName;
 		let self = this;
 		return function(buttonType){
 			if(this.world.currentTarget == this && buttonType==mouseButton){
-				self._xOnTarget = getXFunction.call(clientObject);
-				self._yOnTarget = getYFunction.call(clientObject);
+				self._xOnTarget = clientObject[xVarName];
+				self._yOnTarget = clientObject[yVarName];
 				self._dragging = true;
 			}
 		};
@@ -104,24 +103,24 @@ class DragManager{
 	}
 
 	get_mouseMoved(){
-		let setXFunction = this._setXFunction;
-		let setYFunction = this._setYFunction;
+		let xVarName = this.xVarName;
+		let yVarName = this.yVarName;
 		let clientObject = this._clientObject;
 		let self = this;
 		if(this._type == 'world'){
 			return function(){
 				if(self._dragging){
 					//drag
-					setXFunction.call(clientObject,self._xOnTarget+(this.world.worldView.currentXWorld-this.world.worldView.previousXWorld));
-					setYFunction.call(clientObject,self._yOnTarget+(this.world.worldView.currentYWorld-this.world.worldView.previousYWorld));
+					clientObject[xVarName] = self._xOnTarget+this.world.worldView.currentXWorld-this.world.worldView.previousXWorld;
+					clientObject[yVarName] = self._yOnTarget+this.world.worldView.currentYWorld-this.world.worldView.previousYWorld;
 				}
 			};
 		}else{//'screen'
 			return function(){
 				if(self._dragging){
 					//drag
-					setXFunction.call(clientObject,self._xOnTarget+(this.world.worldView.currentXScreen-this.world.worldView.previousXScreen));
-					setYFunction.call(clientObject,self._yOnTarget+(this.world.worldView.currentYScreen-this.world.worldView.previousYScreen));
+					clientObject[xVarName] = self._xOnTarget+this.world.worldView.currentXScreen-this.world.worldView.previousXScreen;
+					clientObject[yVarName] = self._yOnTarget+this.world.worldView.currentYScreen-this.world.worldView.previousYScreen;
 				}
 			};
 		}

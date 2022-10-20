@@ -24,11 +24,14 @@ class ItemInfoDatabase{
 		// console.log(ItemInfoDatabase.keys);
 	}
 	static _initilizeRawStats(){
+		const fithAgePicStr = "Quest Icons/5th Age.png";
+		const miniFifthAgePicStr = "Quest Icons/Miniquest 5th Age.png";
+		const miniSixthAgePicStr = "Quest Icons/Miniquest 6th Age.png";
+		const miniAnyAgePicStr = "Quest Icons/Miniquest Any Age.png";
 
 		ItemInfoDatabase._mapObject = 
 		{
 			//        https://runescape.wiki/w/List_of_quests         https://runescape.wiki/w/Miniquests
-
 
 			"All Fired Up":{ x:2725,y:2265,
 			questRequirements:[{name:"Priest in Peril"}],
@@ -51,7 +54,7 @@ class ItemInfoDatabase{
 			questPointReward:1,
 			notes:"ironmen need a way to get 4 spears" },
 
-			"Back to my Roots":{ x:1552,y:2586,
+			"Back to my Roots":{ x:1552,y:2586,pictureName:fithAgePicStr,
 			questRequirements:[{name:"A Fairy Tale I - Growing Pains"},{name:"The Hand in the Sand"},{name:"One Small Favour"},{name:"Tribal Totem"}],
 			skillRequirements:[{name:"Agility",quantity:55},{name:"Farming",quantity:53},{name:"Slayer",quantity:59},{name:"Woodcutting",quantity:72}],
 			questPointReward:1, },
@@ -76,7 +79,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Cooking",quantity:30},{name:"Ranged",quantity:30},{name:"Fletching",quantity:5}],
 			questPointReward:2, },
 
-			"Biohazard":{ x:1460,y:2538,
+			"Biohazard":{ x:1460,y:2538,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Plague City"}],
 			skillRequirements:[],
 			questPointReward:3, },
@@ -266,7 +269,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Mining",quantity:50},{name:"Smithing",quantity:50},{name:"Divination",quantity:50}],
 			questPointReward:3, },
 
-			"Devious Minds":{ x:3069,y:2245,
+			"Devious Minds":{ x:3069,y:2245,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Troll Stronghold"},{name:"Wanted!"},{name:"What's Mine is Yours"},{name:"Enter the Abyss"}],
 			skillRequirements:[{name:"Runecrafting",quantity:50},{name:"Fletching",quantity:50},{name:"Smithing",quantity:65}],
 			questPointReward:1, },
@@ -313,7 +316,7 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:4, },
 
-			"Dwarf Cannon":{ x:1439,y:2253,
+			"Dwarf Cannon":{ x:1439,y:2253,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:1, },
@@ -432,7 +435,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Cooking",quantity:22},{name:"Farming",quantity:17}],
 			questPointReward:2, },
 
-			"Forgiveness of a Chaos Dwarf":{ x:1712,y:1806,
+			"Forgiveness of a Chaos Dwarf":{ x:1712,y:1806,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Forgettable Tale of a Drunken Dwarf"},{name:"Between a Rock"}],
 			skillRequirements:[{name:"Hunter",quantity:61},{name:"Firemaking",quantity:61},{name:"Strength",quantity:69}],
 			questPointReward:2, },
@@ -560,7 +563,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Thieving",quantity:38},{name:"Construction",quantity:45},{name:"Hunter",quantity:45}],
 			questPointReward:1, },
 
-			"Icthlarin's Little Helper":{ x:2914,y:3503,
+			"Icthlarin's Little Helper":{ x:2914,y:3503,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Diamond in the Rough"},{name:"Gertrude's Cat"}],
 			skillRequirements:[],
 			questPointReward:2, },
@@ -580,7 +583,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Crafting",quantity:25},{name:"Magic",quantity:7},{name:"Mining",quantity:15},{name:"Mining",quantity:30,iron:true},{name:"Smithing",quantity:30,iron:true}],
 			questPointReward:2, },
 
-			"In Pyre Need":{ x:878,y:1953,
+			"In Pyre Need":{ x:878,y:1953,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[{name:"Firemaking",quantity:55},{name:"Crafting",quantity:52},{name:"Fletching",quantity:53}],
 			questPointReward:1, },
@@ -600,7 +603,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Herblore",quantity:3}],
 			questPointReward:1, },
 
-			"Kennith's Concerns":{ x:1715,y:2634,
+			"Kennith's Concerns":{ x:1715,y:2634,pictureName:fithAgePicStr,
 			questRequirements:[{name:"The Slug Menace"}],
 			skillRequirements:[{name:"Mining",quantity:46}],
 			questPointReward:1, },
@@ -615,7 +618,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Mining",quantity:68},{name:"Smithing",quantity:70},{name:"Strength",quantity:77}],
 			questPointReward:2, },
 
-			"King's Ransom":{ x:1794,y:2154,
+			"King's Ransom":{ x:1794,y:2154,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Holy Grail"},{name:"Murder Mystery"},{name:"One Small Favour"}],
 			skillRequirements:[{name:"Magic",quantity:45},{name:"Defence",quantity:65}],
 			questPointReward:1, },
@@ -677,17 +680,17 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Crafting",quantity:61},{name:"Defence",quantity:40},{name:"Firemaking",quantity:49},{name:"Mining",quantity:60},{name:"Herblore",quantity:5},{name:"Magic",quantity:65},{name:"Woodcutting",quantity:55}],
 			questPointReward:2, },
 
-			"Making History":{ x:1154,y:2517,
+			"Making History":{ x:1154,y:2517,pictureName:fithAgePicStr,
 			questRequirements:[{name:"The Restless Ghost"},{name:"Priest in Peril"}],
 			skillRequirements:[{name:"Crafting",quantity:24,iron:true}],
 			questPointReward:3, },
 
-			"Meeting History":{ x:1180,y:2517,
+			"Meeting History":{ x:1180,y:2517,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Making History"}],
 			skillRequirements:[{name:"Herblore",quantity:3}],
 			questPointReward:1, },
 
-			"Merlin's Crystal":{ x:1813,y:2223,
+			"Merlin's Crystal":{ x:1813,y:2223,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:6, },
@@ -725,17 +728,17 @@ class ItemInfoDatabase{
 			questPointReward:2,
 			notes:"defeat a level 32 monster" },
 
-			"Mourning's End Part I":{ x:1117,y:2678,
+			"Mourning's End Part I":{ x:1117,y:2678,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Big Chompy Bird Hunting"},{name:"Sheep Herder"},{name:"Roving Elves"}],
 			skillRequirements:[{name:"Ranged",quantity:60},{name:"Thieving",quantity:50}],
 			questPointReward:2, },
 
-			"Mourning's End Part II":{ x:1060,y:2678,
+			"Mourning's End Part II":{ x:1060,y:2678,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Mourning's End Part I"}],
 			skillRequirements:[],
 			questPointReward:2, },
 
-			"Murder Mystery":{ x:1765,y:2052,
+			"Murder Mystery":{ x:1765,y:2052,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:3, },
@@ -752,7 +755,7 @@ class ItemInfoDatabase{
 			questPointReward:2,
 			notes:"30 Crafting, 55 Agility, and 80 Woodcutting can give you additional rewards" },
 
-			"Nature Spirit":{ x:3163,y:2536,
+			"Nature Spirit":{ x:3163,y:2536,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Priest in Peril"},{name:"The Restless Ghost"}],
 			skillRequirements:[{name:"Crafting",quantity:18,iron:true},{name:"Smithing",quantity:20,iron:true}],
 			questPointReward:2, },
@@ -838,7 +841,7 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:2, },
 
-			"Plague City":{ x:1339,y:2600,
+			"Plague City":{ x:1339,y:2600,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:1, },
@@ -870,7 +873,7 @@ class ItemInfoDatabase{
 			questPointReward:2,
 			notes:"should be able to beat a level 52 monster" },
 
-			"Rat Catchers":{ x:2584,y:2420,
+			"Rat Catchers":{ x:2584,y:2420,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:2, },
@@ -933,7 +936,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Herblore",quantity:3}],
 			questPointReward:1, },
 
-			"Regicide":{ x:656,y:2926,
+			"Regicide":{ x:656,y:2926,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Underground Pass"}],
 			skillRequirements:[{name:"Agility",quantity:56},{name:"Crafting",quantity:10}],
 			questPointReward:3, },
@@ -956,12 +959,12 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Herblore",quantity:80},{name:"Constitution",quantity:80},{name:"Attack",quantity:78},{name:"Ranged",quantity:78},{name:"Magic",quantity:78},{name:"Firemaking",quantity:76},{name:"Fletching",quantity:75},{name:"Mining",quantity:72}],
 			questPointReward:3, },
 
-			"Rocking Out":{ x:2349,y:3247,
+			"Rocking Out":{ x:2349,y:3247,pictureName:fithAgePicStr,
 			questRequirements:[{name:"The Great Brain Robbery"}],
 			skillRequirements:[{name:"Agility",quantity:60},{name:"Thieving",quantity:63},{name:"Crafting",quantity:66},{name:"Smithing",quantity:69}],
 			questPointReward:2, },
 
-			"Roving Elves":{ x:863,y:2818,
+			"Roving Elves":{ x:863,y:2818,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Regicide"},{name:"Waterfall Quest"}],
 			skillRequirements:[],
 			questPointReward:1, },
@@ -1130,7 +1133,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Thieving",quantity:42},{name:"Ranged",quantity:40}],
 			questPointReward:1, },
 
-			"Throne of Miscellania":{ x:1286,y:1489,
+			"Throne of Miscellania":{ x:1286,y:1489,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Heroes' Quest"},{name:"The Fremennik Trials"}],
 			skillRequirements:[],
 			questPointReward:1, },
@@ -1150,7 +1153,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Construction",quantity:10}],
 			questPointReward:2, },
 
-			"Tree Gnome Village":{ x:1335,y:2878,
+			"Tree Gnome Village":{ x:1335,y:2878,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:2,
@@ -1209,7 +1212,7 @@ class ItemInfoDatabase{
 			questPointReward:4,
 			notes:"must beat a level 53 ogre" },
 
-			"Waterfall Quest":{ x:1303,y:2286,
+			"Waterfall Quest":{ x:1303,y:2286,pictureName:fithAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:1, },
@@ -1238,7 +1241,7 @@ class ItemInfoDatabase{
 			questPointReward:4,
 			notes:"must beat 4 monsters up to level 49" },
 
-			"Within the Light":{ x:1000,y:2676,
+			"Within the Light":{ x:1000,y:2676,pictureName:fithAgePicStr,
 			questRequirements:[{name:"Mourning's End Part II"}],
 			skillRequirements:[{name:"Agility",quantity:69},{name:"Fletching",quantity:70},{name:"Ranged",quantity:75},{name:"Woodcutting",quantity:75}],
 			questPointReward:2, },
@@ -1276,7 +1279,7 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:0, },
 
-			"Benedict's World Tour":{ x:2692,y:2425,
+			"Benedict's World Tour":{ x:2692,y:2425,pictureName:miniSixthAgePicStr,
 			questRequirements:[{name:"Stolen Hearts"}],////partial
 			skillRequirements:[],
 			questPointReward:0, },
@@ -1286,7 +1289,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Mining",quantity:60}],
 			questPointReward:0, },
 
-			"The Curse of Zaros":{ x:1398,y:2319,
+			"The Curse of Zaros":{ x:1398,y:2319,pictureName:miniFifthAgePicStr,
 			questRequirements:[{name:"Desert Treasure"},{name:"The Restless Ghost"}],/////both started
 			skillRequirements:[{name:"Prayer",quantity:31}],
 			questPointReward:0, },
@@ -1307,7 +1310,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Smithing",quantity:70},{name:"Mining",quantity:70,iron:true}],
 			questPointReward:0, },
 
-			"Enter the Abyss":{ x:2498,y:2093,
+			"Enter the Abyss":{ x:2498,y:2093,pictureName:miniFifthAgePicStr,
 			questRequirements:[{name:"Rune Mysteries"}],
 			skillRequirements:[],
 			questPointReward:0, },
@@ -1317,7 +1320,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Mining",quantity:90}],
 			questPointReward:0, },
 
-			"Father and Son":{ x:4197,y:583,
+			"Father and Son":{ x:4197,y:583,pictureName:miniSixthAgePicStr,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:0, },
@@ -1337,7 +1340,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Thieving",quantity:24}],
 			questPointReward:0, },
 
-			"The General's Shadow":{ x:1673,y:1966,
+			"The General's Shadow":{ x:1673,y:1966,pictureName:miniFifthAgePicStr,
 			questRequirements:[{name:"The Curse of Zaros"},{name:"Fight Arena"}],
 			skillRequirements:[],
 			questPointReward:0, },
@@ -1362,7 +1365,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Woodcutting",quantity:90},{name:"Fishing",quantity:90},{name:"Cooking",quantity:91}],
 			questPointReward:0, },
 
-			"Helping Laniakea":{ x:4261,y:529,
+			"Helping Laniakea":{ x:4261,y:529,pictureName:miniSixthAgePicStr,
 			questRequirements:[],
 			skillRequirements:[{name:"Hunter",quantity:75,iron:true},{name:"Slayer",quantity:55,iron:true}],
 			questPointReward:0, },
@@ -1387,7 +1390,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Hunter",quantity:90},{name:"Crafting",quantity:91}],
 			questPointReward:0, },
 
-			"Knight Waves training ground":{ x:1829,y:2155,
+			"Knight Waves training ground":{ x:1829,y:2155,pictureName:fithAgePicStr,
 			questRequirements:[{name:"King's Ransom"}],
 			skillRequirements:[],
 			questPointReward:0,
@@ -1446,7 +1449,7 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:0, },
 
-			"Sins of the Father":{ x:4149,y:433,
+			"Sins of the Father":{ x:4149,y:433,pictureName:miniSixthAgePicStr,
 			questRequirements:[{name:"Desperate Measures"}],
 			skillRequirements:[],
 			questPointReward:0,
@@ -1463,7 +1466,7 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:0, },
 
-			"Tales of the God Wars":{ x:3036,y:3445,
+			"Tales of the God Wars":{ x:3036,y:3445,pictureName:miniSixthAgePicStr,
 			questRequirements:[{name:"Troll Stronghold"}],//////started
 			skillRequirements:[{name:"Constitution",quantity:70}],
 			questPointReward:0,
@@ -1893,7 +1896,7 @@ class ItemInfoDatabase{
 			skillRequirements:[{name:"Firemaking",quantity:35},{name:"Crafting",quantity:11},{name:"Fishing",quantity:55},{name:"Agility",quantity:15},{name:"Strength",quantity:35},{name:"Smithing",quantity:5},{name:"Herblore",quantity:4}],
 			questPointReward:0, },
 
-			"Raksha, the Shadow Colossus":{ x:4605,y:986,
+			"Raksha, the Shadow Colossus":{ x:4605,y:986,pictureName:miniSixthAgePicStr,
 			questRequirements:[{name:"Desperate Measures",optional:true}],
 			skillRequirements:[],
 			questPointReward:0, },
@@ -1903,32 +1906,113 @@ class ItemInfoDatabase{
 			skillRequirements:[],
 			questPointReward:1, },
 
-			"Foreshadowing":{ x:2719,y:2407,
-			questRequirements:[],
+			"Once Upon a Time in Gielinor":{ x:2719,y:2407,pictureName:miniSixthAgePicStr,
+			questRequirements:[{name:"Demon Slayer",optional:true},{name:"Dragon Slayer",optional:true},{name:"Vampyre Slayer",optional:true},
+								{name:"Merlin's Crystal",optional:true},{name:"Diamond in the Rough",optional:true},{name:"Animal Magnetism",optional:true},
+								{name:"Missing, Presumed Death",optional:true},{name:"Dishonour among Thieves",optional:true},{name:"The Death of Chivalry",optional:true},
+								{name:"Carnillean Rising",optional:true},{name:"Impressing the Locals",optional:true}],
 			skillRequirements:[],
 			questPointReward:0, },
 
-			"Heartstealer":{ x:0,y:0,
+			"Heartstealer":{ x:2821,y:2312,
 			questRequirements:[],
 			skillRequirements:[],
 			questPointReward:1, },
 
-			"Tortle Combat":{ x:0,y:0,
+			"Tortle Combat":{ x:2761,y:2290,pictureName:miniAnyAgePicStr,
 			questRequirements:[],
 			skillRequirements:[{name:"Construction",quantity:40},{name:"Farming",quantity:17}],
 			questPointReward:0, },
 			
-			"The Vault of Shadows":{ x:2990,y:2820,
+			"The Vault of Shadows":{ x:2990,y:2820,pictureName:miniSixthAgePicStr,
 			questRequirements:[],
 			skillRequirements:[{name:"Archaeology",quantity:58},{name:"Divination",quantity:60}],
 			questPointReward:0, },
 
-			"Azzanadra's Quest":{ x:0,y:0,
-			questRequirements:[{name:"The Vault of Shadows"}],
+			"Azzanadra's Quest":{ x:2068,y:2045,
+			questRequirements:[{name:"The Vault of Shadows"},{name:"Desperate Measures",optional:true}],
 			skillRequirements:[{name:"Archaeology",quantity:58},{name:"Divination",quantity:70},{name:"Agility",quantity:58},{name:"Prayer",quantity:58}],
 			questPointReward:3, },
 
+			// "Flashback":{ x:2739,y:2407,pictureName:miniSixthAgePicStr,
+			// questRequirements:[{name:"Foreshadowing"},{name:"Merlin's Crystal",optional:true},{name:"Diamond in the Rough",optional:true},{name:"Animal Magnetism",optional:true}],
+			// skillRequirements:[],
+			// questPointReward:0, },
+
+			"Battle of the Monolith":{ x:3000,y:2450,pictureName:miniSixthAgePicStr,
+			questRequirements:[{name:"Azzanadra's Quest",optional:true},{name:"The Brink of Extinction",optional:true}],
+			skillRequirements:[{name:"Archaeology",quantity:5}],
+			questPointReward:0, },
+
+			"City of Senntisten":{ x:2963,y:2264,
+			questRequirements:[{name:"Azzanadra's Quest"},{name:"Battle of the Monolith"}],
+			skillRequirements:[{name:"Slayer",quantity:75},{name:"Archaeology",quantity:74},{name:"Magic",quantity:74}],
+			questPointReward:3, },
+
+			"Eye of Het I":{ x:2944,y:2746,pictureName:miniSixthAgePicStr,
+			questRequirements:[{name:"City of Senntisten"}],
+			skillRequirements:[{name:"Agility",quantity:65}],
+			questPointReward:0, },
+
+			"Eye of Het II":{ x:2944,y:2700,pictureName:miniSixthAgePicStr,
+			questRequirements:[{name:"Eye of Het I"}],
+			skillRequirements:[],
+			questPointReward:0, },
+
+			"Extinction":{ x:3000,y:2351,
+			questRequirements:[{name:"Eye of Het II"},{name:"Desperate Measures"},{name:"Sins of the Father",optional:true}],
+			skillRequirements:[],
+			questPointReward:4, },
+
+			"Twilight of the Gods":{ x:3100,y:2351,
+			questRequirements:[{name:"Extinction"},{name:"Broken Home"}],
+			skillRequirements:[{name:"Divination",quantity:80},{name:"Thieving",quantity:60}],
+			questPointReward:3, },
+
+			"Aftermath":{ x:2553,y:1807,pictureName:miniSixthAgePicStr,
+			questRequirements:[{name:"Twilight of the Gods"}],
+			skillRequirements:[],
+			questPointReward:0, },
+
+			"Daughter of Chaos":{ x:2572,y:2149,
+			questRequirements:[{name:"Aftermath",optional:true}],
+			skillRequirements:[{name:"Archaeology",quantity:40},{name:"Divination",quantity:40}],
+			questPointReward:1, },
+
+			// "_________":{ x:0000,y:0000,
+			// questRequirements:[{name:"QuestName"},{name:"QuestName",optional:true}],
+			// skillRequirements:[{name:"Skill",quantity:99},{name:"Skill",quantity:99},{name:"Skill",quantity:99}],
+			// questPointReward:0, },
+
 		};
+	}
+
+	static switchCoords(type){
+		if(type==='location'){
+			for (const [name, itemInfo] of Object.entries(ItemInfoDatabase._mapObject)) {
+				itemInfo.icon.currentXWorld = itemInfo.x;
+				itemInfo.icon.currentYWorld = itemInfo.y;
+			}
+			return;
+		}
+
+		if(type==='tree'){
+			for (const [name, itemInfo] of Object.entries(ItemInfoDatabase._mapObject)) {
+				itemInfo.icon.currentXWorld = itemInfo.xTree;
+				itemInfo.icon.currentYWorld = itemInfo.yTree;
+			}
+			return;
+		}
+	}
+
+	static printCoords(fileName){
+		let fileDataString = '';
+		for (const [name, itemInfo] of Object.entries(ItemInfoDatabase._mapObject)) {
+			fileDataString += itemInfo.name + '~' + Math.round(itemInfo.icon.currentXWorld) + '~' + Math.round(itemInfo.icon.currentYWorld) + '\n';
+		}
+		//delete last enter
+		fileDataString = fileDataString.slice(0, -1);
+		MyFileReader.downloadFile(fileName,fileDataString);
 	}
 
 	static _setOtherVars(){
@@ -1941,13 +2025,31 @@ class ItemInfoDatabase{
 			itemInfo['unlocks'] = [];
 		}
 
+		//set tree coords (read from file)
+		// let self = this;
+		MyFileReader.readFile('data/tree coords.txt',function(fileText){
+			let lines = fileText.split('\n');
+		    lines.forEach(function(line){
+		    	let array = line.split('~');//['questName','xTree','yTree']
+		    	let itemInfo = ItemInfoDatabase._mapObject[array[0]];
+		    	if(itemInfo==null){
+		    		itemInfo.xTree=Number(0);
+		    		itemInfo.yTree=Number(0);
+		    		return;
+		    	}
+		    	itemInfo.xTree=Number(array[1]);
+		    	itemInfo.yTree=Number(array[2]);
+		    });
+
+			self.finishedLoading = true;
+		});
+
 		//set unlocks
 		for (const [name, itemInfo] of Object.entries(ItemInfoDatabase._mapObject)) {
 			let reqs = itemInfo.questRequirements;
 			reqs.forEach(function(req){
 				
 				let reqQuestName = req.name;
-console.log(reqQuestName);
 				let reqItemInfo = ItemInfoDatabase.getItemInfo(reqQuestName);
 				if(reqItemInfo==null){
 					console.log('i');
