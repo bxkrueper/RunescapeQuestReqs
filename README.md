@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/28366832/196843626-7f550921-4cf4-445a-bec6-b82ff10b4237.png)
 
 
-This is an interactive tool that lets you view and track you progress though the quest tree in the game Runescape.
+This is an interactive tool that lets you view and track you progress though the quest tree in the game Runescape. It is a little out of date, though.
 
 Edit your stats be scrolling up and down while hovering over them.
 Select a quest by clicking it. View its name and requirements.
